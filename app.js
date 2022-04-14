@@ -1,9 +1,9 @@
 //REVERSE DOESNT WORK for two players
-
+// const http = require('http')
 const express = require("express")
 const socketio = require("socket.io")
 const mongoose = require("mongoose")
-// const cors = require('cors');
+const cors = require('cors');
 const dotenv = require("dotenv")
 const Game = require("./Models/Game")
 // const QuoatableAPI = require("./QuoatableAPI")
@@ -15,7 +15,7 @@ const io = socketio(expressServer)
 const PACKOFCARDS = require("./Models/DeckOfCards")
 const OPENINGDECK = require("./Models/OpeningDeck")
 // import PACKOFCARDS from "./client/src/components/DeckOfCards"
-
+app.use(cors())
 dotenv.config()
 
 
