@@ -1,4 +1,4 @@
-//REVERSE DOESNT WORK
+//REVERSE DOESNT WORK for two players
 
 const express = require("express")
 const socketio = require("socket.io")
@@ -8,7 +8,9 @@ const dotenv = require("dotenv")
 const Game = require("./Models/Game")
 // const QuoatableAPI = require("./QuoatableAPI")
 const app = express()
-const expressServer = app.listen(3001)
+// const expressServer = app.listen(3001)
+
+const expressServer = app.listen("https://youno26.herokuapp.com/")
 const io = socketio(expressServer)
 const PACKOFCARDS = require("./Models/DeckOfCards")
 const OPENINGDECK = require("./Models/OpeningDeck")
@@ -312,6 +314,10 @@ io.on("connect",(socket)=>{
 })
 
 mongoose.connect("mongodb://localhost:27017/uno",()=>{console.log("Successfully connected to uno db")})
+app.use(express.static('client/build'))
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+})
 // mongoose.connect(process.env.MONGO_URL,()=>{console.log("Successfully connected to db")})
 
 // const startGameClock =async(gameId)=>{
