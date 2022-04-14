@@ -313,7 +313,9 @@ io.on("connect",(socket)=>{
     })
 })
 
-mongoose.connect("mongodb+srv://Neeraj:0I8WP1SqFYbvBJWQ@cluster0.7ucpx.mongodb.net/uno?retryWrites=true&w=majority",()=>{console.log("Successfully connected to uno db")})
+// FIX MONGO DB URI EXPOSED
+
+mongoose.connect(process.env.MONGOURI,()=>{console.log("Successfully connected to uno db")})
 app.use(express.static('client/build'))
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
