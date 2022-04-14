@@ -1,0 +1,9 @@
+.gameCode{
+    position: fixed;
+    top: 60%;
+    right: 86%;
+    width: 18vw;
+}
+p{
+    font-weight: bold;
+}

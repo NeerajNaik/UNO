@@ -1,0 +1,25 @@
+
+
+.top{
+    margin-top: 60px;
+}
+.gameMenu{
+    animation: render 2s steps(4);
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 30px;
+}
+
+@keyframes render{
+    0%{
+        width: 0ch;
+        margin-left: 50%;
+        border-right: 2px solid black;
+    }
+    100%{
+        width: 20ch;
+        margin-left: 30%;
+        border-right: 2px solid white;
+    }
+}
+

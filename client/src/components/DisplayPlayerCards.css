@@ -1,0 +1,120 @@
+/* #frame div {position: absolute; width: 150px; height: 150px;}
+
+#map {top: 150px; left: 150px; background-color: orange;}
+
+#east {right: 0px; top: 150px; background-color: yellow;}
+
+#west {left: 0px; top: 150px; background-color: blue;}
+
+#north {left: 150px; top: 0; background-color: green;}
+
+#south {left: 150px; bottom: 0; background-color: gray;} */
+
+/* #south{
+
+    margin-top: 34vh;
+    
+    position: relative;
+} */
+body{
+    /* background-image: url("../assets/backgrounds/bgR.png"); */
+    background-position: center;
+    /* background-size: contain; */
+    height: 100%;
+    margin: 0;
+}
+.south{
+    margin-top: 4%;
+}
+
+.north{
+    top: 3px;
+    position: absolute;
+    left: 0;
+    right:0;
+}
+
+@keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    to {
+      text-shadow: 0 0 20px goldenrod, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+  }
+
+.yourTurn{
+    background-color: goldenrod;
+    visibility: hidden;
+    display: inline-flex;
+    color: RED;
+    font-family: fantasy;
+    border: 1px solid red;
+    border-radius: 5%;
+    padding: 3px;
+    margin: 0px 7px 7px 7px;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+.unoCall{
+    width: 11vw;
+    position: absolute;
+    z-index: 99999999;
+    left: 60%;
+    visibility: hidden;
+}
+
+.east{
+
+    right: 3vw;
+    top:14vw;
+    max-width: 25vw;
+    position: fixed;
+}
+.west{
+    position: fixed;
+    left: 3vw;
+    top: 14vw;
+    max-width: 24vw;
+}
+
+.playerDetails{
+    margin-bottom: 5px;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.card,.cardBacks{
+    /* height: 200px; */
+    /* background: rgb(49, 117, 9); */
+    /* border-radius: 1rem; */
+    /* padding: 1.5rem; */
+    box-shadow: 3px 3px 12px 2px rgba(0, 0, 0, 0.6);
+    transition: 0.2s;  
+    
+}
+
+.card:not(:first-child) {
+    margin-left: -2rem;
+}
+
+.cardBacks:not(:first-child) {
+    margin-left: -4rem;
+}
+
+
+/* .card:focus { */
+    /* border:2px solid green; */
+/* } */
+
+.card:hover,
+.card:focus-within {
+    transform: translateY(-1rem);
+}
+
+/* ~ represents is the general sibling selector*/
+/* focus-within helps in changing parrent if any of the child can be focussed */
+.card:not(:last-child):hover~.card,
+.card:not(:last-child):focus-within~.card {
+    transform: translateX(2rem);
+}
