@@ -9,8 +9,8 @@ const Game = require("./Models/Game")
 // const QuoatableAPI = require("./QuoatableAPI")
 const app = express()
 // const expressServer = app.listen(3001)
-
-const expressServer = app.listen("https://youno26.herokuapp.com/")
+const PORT = process.env.PORT || 3001
+const expressServer = app.listen(PORT)
 const io = socketio(expressServer)
 const PACKOFCARDS = require("./Models/DeckOfCards")
 const OPENINGDECK = require("./Models/OpeningDeck")
