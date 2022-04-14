@@ -18,7 +18,7 @@ const OPENINGDECK = require("./Models/OpeningDeck")
 const path = require('path')
 app.use(cors())
 dotenv.config()
-
+console.log(__dirname)
 
 io.on("connect",(socket)=>{
     //userInputDraw
@@ -285,12 +285,8 @@ io.on("connect",(socket)=>{
 
     socket.on("create-game",async (nickName)=>{
         try{
-            // const quotableData = await QuoatableAPI()
+            console.log("udyiodyfoidfyioofuoauopsafu")
             let game = new Game()
-            // let randomIndex = Math.floor(Math.random() * PACKOFCARDS.length);
-            // let firstCard = PACKOFCARDS[randomIndex]
-            // game.topMostCard = firstCard
-            // game.color = firstCard.charAt(firstCard.length -1)
             let cardArray = []
             while(cardArray.length<7){
                 let randomIndex = Math.floor(Math.random() * PACKOFCARDS.length);
@@ -304,17 +300,20 @@ io.on("connect",(socket)=>{
                 nickName
             }
             game.players.push(player)
+            console.log("CREATinaaaasasasg SUCESSS")
             game = await game.save()
             const gameId = game._id.toString()
             socket.join(gameId)
+            console.log("CREATing SUCESSS")
             io.to(gameId).emit("update-game",game)
+            console.log("CREATED SUCESSS")
         }catch(err){
-            console.log(err)
+            console.log("ERRR",err)
         }
     })
 })
 
-mongoose.connect("mongodb://localhost:27017/uno",()=>{console.log("Successfully connected to uno db")})
+mongoose.connect("mongodb+srv://Neeraj:0I8WP1SqFYbvBJWQ@cluster0.7ucpx.mongodb.net/uno?retryWrites=true&w=majority",()=>{console.log("Successfully connected to uno db")})
 app.use(express.static('client/build'))
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))

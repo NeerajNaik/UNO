@@ -11,6 +11,7 @@ const CreateGame = () => {
     const onSubmit = (e)=>{
         e.preventDefault()
         // console.log("hi",nickName)
+        console.log("gsdaguygsda")
         socket.emit("create-game",nickName)
     }
     return (
