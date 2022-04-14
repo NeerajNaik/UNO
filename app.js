@@ -15,6 +15,7 @@ const io = socketio(expressServer)
 const PACKOFCARDS = require("./Models/DeckOfCards")
 const OPENINGDECK = require("./Models/OpeningDeck")
 // import PACKOFCARDS from "./client/src/components/DeckOfCards"
+const path = require('path')
 app.use(cors())
 dotenv.config()
 
